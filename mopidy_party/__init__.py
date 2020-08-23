@@ -25,14 +25,14 @@ class PartyRequestHandler(tornado.web.RequestHandler):
             self.data["votes"] = []
 
         if (self.request.remote_ip in self.data["votes"]): # User has already voted
-            self.write("You have already voted to skip this song =)")
+            self.write("Már szavaztál =)")
         else: # Valid vote
             self.data["votes"].append(self.request.remote_ip)
             if (len(self.data["votes"]) == self.requiredVotes):
                 self.core.playback.next()
-                self.write("Skipping...")
+                self.write("Ugrás...")
             else:
-                self.write("You have voted to skip this song. ("+str(self.requiredVotes-len(self.data["votes"]))+" more votes needed)")
+                self.write("Szavaztál, hogy ugrojuk ezt a számot... (még kell "+str(self.requiredVotes-len(self.data["votes"]))+" szavazat)")
 
 
 

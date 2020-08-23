@@ -19,7 +19,7 @@
     <div class="container-fluid" style="margin-top:20px">
       <div class="row">
         <div class="col-4">
-          <button type="button" class="btn" ng-model="button" ng-click="togglePause()" ng-disabled="!ready || currentState.length === 0" ng-class="{'btn-success' : currentState.paused, 'btn-danger': !currentState.paused}">
+          <button type="button" class="btn" ng-model="button" ng-click="togglePause()" ng-disabled="true" ng-class="{'btn-success' : currentState.paused, 'btn-danger': !currentState.paused}">
             <span class="fas fa-pause" ng-class="{'fa-play': currentState.paused, 'fa-pause' : !currentState.paused}"></span>
           </button>
           <button type="button" class="btn btn-primary" ng-model="button" ng-click="nextTrack()" ng-disabled="!ready || currentState.length === 0">
@@ -28,7 +28,7 @@
           <p><small>
             <span class="fas fa-music" ng-if="currentState.length > 0"></span>
             <span class="fas fa-exclamation-triangle" ng-if="currentState.length === 0"></span>
-            {{ currentState.length }} track{{ currentState.length > 1 ? 's' : '' }}
+            {{ currentState.length }} szám
           </small></p>
         </div>
         <div class="col-8">
@@ -49,10 +49,10 @@
       <div class="row">
         <div class="col-12">
           <form ng-submit="search()">
-            <input type="text" role="search" class="form-control" placeholder="Search..." ng-model="searchField" ng-disabled="!ready">
+            <input type="text" role="search" class="form-control" placeholder="Keresés..." ng-model="searchField" ng-disabled="!ready">
           </form>
           <div ng-show="loading" class="container-fluid">
-            <p><span class="fas fa-hourglass"></span> Loading...</p>
+            <p><span class="fas fa-hourglass"></span> Folyamatban...</p>
           </div>
         </div>
       </div>

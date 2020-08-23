@@ -17,7 +17,7 @@ angular.module('partyApp', [])
     length : 0,
     track  : {
       length : 0,
-      name   : 'Nothing playing, add some songs to get the party going!'
+      name   : 'Nem megy semmi, keress valami jó számot!'
     }
   };
 
@@ -189,7 +189,7 @@ angular.module('partyApp', [])
     })
     .then(function(){
       // Notify user
-      $scope.message = ['success', 'Next track: ' + track.name];
+      $scope.message = ['success', 'Következő szám: ' + track.name];
       $scope.$apply();
       return mopidy.tracklist.setConsume([true]);
     })
@@ -205,7 +205,7 @@ angular.module('partyApp', [])
     })
     .catch(function(){
       track.disabled = false;
-      $scope.message = ['error', 'Unable to add track, please try again...'];
+      $scope.message = ['error', 'Nem sikerült hozzáadni a számot, kérlek próbáld meg újra...'];
       $scope.$apply();
     })
     .done();
